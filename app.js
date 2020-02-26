@@ -2,11 +2,17 @@
 
 //import express library
 const express = require('express');
+//importing temple engine below
+es6Renderer = require('express-es6-template-engine');
 // in order to have the methods of express, we have to run the appication below.
 const app = express(); 
 
+app.engine('html',es6Renderer);
+app.set('views', 'views');
+app.set('view engine','html');
+
 // first argument is a port. 3000 and up is safe. 
-app.listen(3333, () => {
+app.listen(3355, () => {
     console.log('Server running on port 3333')
 });
 

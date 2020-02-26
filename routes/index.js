@@ -12,12 +12,15 @@ router = express.Router();
  refactured code to break things down into smaller chunks. 
  */
 
-router.get('/', (req,res) => {
-    const snippet = 'hello world'
-    res
-    .status(200)
-    .send(snippet)
-    .end()
+router.get('/index', (req,res) => {
+    res.render('template', {
+        locals:{
+            title: 'Hello World'
+        },
+        partials: {
+            partial: 'partial-index'
+        }
+    })
 });
 
 module.exports = router; 
